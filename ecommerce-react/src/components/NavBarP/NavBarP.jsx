@@ -1,57 +1,44 @@
 // import "./NavBarP.css"
 
-import { Navbar,Container,Offcanvas,Nav,Form,FormControl,Button,NavDropdown, NavLink, ListGroup, ListGroupItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Navbar,Container,Offcanvas,Button, NavLink } from "react-bootstrap";
 
-const NavBarP = ({onSearchChange,searchField}) =>{
+import { CartContent } from "./CartContent";
+
+
+const NavBarP = ({onSearchChange,isLogin,cart}) =>{
 
     const onSearchAction=(event)=>{
         onSearchChange(event.target.value)
     }
 
     return(
-        <Navbar bg="dark" variant="dark" expand={false} 
-        // fixed="top"
-        >
+        <Navbar bg="dark" variant="dark" expand={false} sticky="top">
             <Container fluid>
                 <Navbar.Brand href="/">HardCore E-commerce</Navbar.Brand>
+                <form>
                 <input
                 type="search" 
                 placeholder="What do you look for?"
                 onChange={onSearchAction}/>
+                {/* <input type="submit">submit</input> */}
+                </form>
+                {isLogin?
+                <NavLink href='/profile'>Profile</NavLink>
+                :<NavLink href='/signin'>Sign In</NavLink>
+                }
                 
-                
-                {/* 
-                <Form className="d-flex">
-                    <FormControl
-                        type="search"
-                        placeholder="Search"
-                        className="me-2"
-                        aria-label="Search"
-                        onChan
-                    />
-                    <Button variant="outline-success">Search</Button>
-                </Form> */}
-                <NavLink href='/signin'>Sign In</NavLink>
-                <Link to="/signin"></Link>
-                
-
-                <Navbar.Toggle aria-controls="offcanvasNavbar" />
+                <Navbar.Toggle aria-controls="offcanvasNavbar" > CART</Navbar.Toggle>
                 <Navbar.Offcanvas
                 id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel"
                 placement="end"
                 >
+                    {/* <CartContent/> */}
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title id="offcanvasNavbarLabel">Cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <ListGroup>
-                        <ListGroupItem>Item 1</ListGroupItem>
-                        <ListGroupItem>Item 1</ListGroupItem>
-                        <ListGroupItem>Item 1</ListGroupItem>
-                        <ListGroupItem>Item 1</ListGroupItem>
-                    </ListGroup>
+                    <CartContent cart={cart}/>
 
                     <Button>Proceed to Checkout</Button>
                     

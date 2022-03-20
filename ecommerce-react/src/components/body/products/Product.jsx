@@ -16,7 +16,7 @@ const Product = () =>{
             fetch(`https://fakestoreapi.com/products/${id}`)
             .then(res=>res.json())
             .then(json=>setProduct(json))
-        },[]
+        }
     )
         
     return(
