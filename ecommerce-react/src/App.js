@@ -3,7 +3,7 @@ import NavBarP from "./components/NavBarP/NavBarP";
 import Body from "./components/body/body";
 // import Footer from "./components/Footer/Footer";
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Signin from "./components/signin/Signin";
 import Product from "./components/body/products/Product";
@@ -19,7 +19,7 @@ function App() {
   const [cart,setCart] = useState([1,2,3]);
   const [actualProductId, setActualProductId] = useState("");
   const [favorites,setFavorites] = useState([]);
-  const [totalValue, setTotalValue] = useState("")
+  const [totalValue, setTotalValue] = useState(0.0)
 
   // handlers
   const onLogin = (userid)=>{
@@ -55,6 +55,9 @@ function App() {
       return previousFavState.filter((id)=>{return id !==itemId})
     })
   };
+  const sumValue = ()=>{
+
+  }
 
 
   //catch products and fill productsstate
@@ -71,6 +74,7 @@ function App() {
   //
   return (
     <div className="App text-center">
+      <BrowserRouter>
       <NavBarP 
         onSearchChange={onSearchChange} 
         searchField={searchField} 
@@ -91,7 +95,7 @@ function App() {
           }
         />
 
-        <Route path="/signin" 
+        <Route path="signin" 
           element={
             <Signin 
               onLogin={onLogin}
@@ -99,7 +103,7 @@ function App() {
           } 
         />
 
-        <Route path="/product/:id" 
+        <Route path="product/:id" 
           element={
             <Product 
               id={actualProductId} 
@@ -108,7 +112,7 @@ function App() {
           } 
         />
 
-        <Route path="/profile/" 
+        <Route path="profile" 
           element={
             <Profile 
               userId={userId}
@@ -116,7 +120,7 @@ function App() {
           }
         />
 
-        <Route path="/checkout" 
+        <Route path="checkout" 
           element={
             <Checkout 
             cart={cart} 
@@ -130,6 +134,7 @@ function App() {
       </Routes>
 
       {/* <Footer /> */}
+      </BrowserRouter>
     </div>
   );
 }
