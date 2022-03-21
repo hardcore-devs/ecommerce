@@ -1,5 +1,7 @@
 # ecommerce
 <h1>Ecommerce project</h1>
-<a href="#">Trello</a>
 
-<a href="#">Figma</a>
+
+Deploy no Heroku: https://hardcore-ecommerce.herokuapp.com/
+
+Deploy no Netlify: https://serene-sinoussi-50e5cf.netlify.app/
