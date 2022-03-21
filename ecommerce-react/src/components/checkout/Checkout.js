@@ -1,7 +1,12 @@
-const Checkout = ()=>{
+const Checkout = ({isLogin})=>{
+
+  
+
+
     return(
         <div>
-            Checkout
+            {!isLogin ? <p>please login first</p>:<p>Checkout</p>}
+            
         </div>
     )
 }

@@ -1,11 +1,11 @@
 // import "./NavBarP.css"
 
-import { Navbar,Container,Offcanvas,Button, NavLink } from "react-bootstrap";
+import { Navbar,Container,Offcanvas, NavLink } from "react-bootstrap";
 
 import { CartContent } from "./CartContent";
 
 
-const NavBarP = ({onSearchChange,isLogin,cart}) =>{
+const NavBarP = ({onSearchChange,isLogin,cart, rmCartItem}) =>{
 
     const onSearchAction=(event)=>{
         onSearchChange(event.target.value)
@@ -38,9 +38,9 @@ const NavBarP = ({onSearchChange,isLogin,cart}) =>{
                     <Offcanvas.Title id="offcanvasNavbarLabel">Cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <CartContent cart={cart}/>
+                    <CartContent cart={cart} rmCartItem={rmCartItem}/>
 
-                    <Button>Proceed to Checkout</Button>
+                    <a href="/checkout">Proceed to checkout</a>
                     
                 </Offcanvas.Body>
                 </Navbar.Offcanvas>

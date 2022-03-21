@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const CartItem=({itemId})=>{
+const CartItem=({itemId, rmCartItem})=>{
 
     const [product, setProduct] = useState([]);
     
@@ -20,7 +20,7 @@ const CartItem=({itemId})=>{
             <img alt="item" src={product.image} width="50px"className="p-1"/>
             <div className="p-1">{product.title || "title" }</div>
             <div className="p-1">{product.price}</div>
-            <div>x</div>
+            <button onClick={()=>rmCartItem(itemId)}>x</button>
         </div>
 
     )

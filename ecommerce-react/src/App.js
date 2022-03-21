@@ -32,7 +32,7 @@ function App() {
 
   const onAddToCart = (itemId)=>(previousCartState)=>setCart([...previousCartState,itemId])
   // do this
-  // const onRemoveFromCart = itemId=>{};
+  const onRemoveFromCart = itemId=>(previousCartState)=>setCart(previousCartState.filter(!itemId));
 
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div className="App text-center">
-      <NavBarP onSearchChange={onSearchChange} searchField={searchField} isLogin={isLogin} cart={cart}/>
+      <NavBarP onSearchChange={onSearchChange} searchField={searchField} isLogin={isLogin} cart={cart} rmCartItem={onRemoveFromCart}/>
       <Routes>
         <Route
           path="/"
