@@ -3,4 +3,5 @@
 
 
 Deploy no Heroku: https://hardcore-ecommerce.herokuapp.com/
-Deply no Netlify: https://serene-sinoussi-50e5cf.netlify.app/
+
+Deploy no Netlify: https://serene-sinoussi-50e5cf.netlify.app/
