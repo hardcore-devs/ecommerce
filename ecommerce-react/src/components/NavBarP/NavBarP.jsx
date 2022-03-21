@@ -1,8 +1,10 @@
 // import "./NavBarP.css"
 
-import { Navbar,Container,Offcanvas, NavLink } from "react-bootstrap";
+import { Navbar,Container,Offcanvas,NavLink} from "react-bootstrap";
+import { Link  } from "react-router-dom";
 
 import { CartContent } from "./CartContent";
+import UserConnection from "./UserConnection";
 
 
 const NavBarP = ({onSearchChange,isLogin,cart, rmCartItem}) =>{
@@ -15,6 +17,17 @@ const NavBarP = ({onSearchChange,isLogin,cart, rmCartItem}) =>{
         <Navbar bg="dark" variant="dark" expand={false} sticky="top">
             <Container fluid>
                 <Navbar.Brand href="/">HardCore E-commerce</Navbar.Brand>
+                {/* <InputGroup className="mb-3">
+                    <FormControl
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="basic-addon2"
+                    onChange={onSearchAction}
+                    />
+                    <Button variant="outline-secondary" id="button-addon2">
+                    Button
+                    </Button>
+                </InputGroup> */}
                 <form>
                 <input
                 type="search" 
@@ -22,10 +35,8 @@ const NavBarP = ({onSearchChange,isLogin,cart, rmCartItem}) =>{
                 onChange={onSearchAction}/>
                 {/* <input type="submit">submit</input> */}
                 </form>
-                {isLogin?
-                <NavLink href='/profile'>Profile</NavLink>
-                :<NavLink href='/signin'>Sign In</NavLink>
-                }
+                <UserConnection isLogin={isLogin}/>
+                
                 
                 <Navbar.Toggle aria-controls="offcanvasNavbar" > CART</Navbar.Toggle>
                 <Navbar.Offcanvas
@@ -40,7 +51,9 @@ const NavBarP = ({onSearchChange,isLogin,cart, rmCartItem}) =>{
                 <Offcanvas.Body>
                     <CartContent cart={cart} rmCartItem={rmCartItem}/>
 
-                    <a href="/checkout">Proceed to checkout</a>
+                    <NavLink href="checkout">checkout</NavLink>
+                    {/* <NavLink path="/checkout">Proceed to checkout</NavLink> */}
+                    
                     
                 </Offcanvas.Body>
                 </Navbar.Offcanvas>

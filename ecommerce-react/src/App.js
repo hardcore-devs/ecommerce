@@ -9,6 +9,7 @@ import Signin from "./components/signin/Signin";
 import Product from "./components/body/products/Product";
 import Profile from "./components/profile/Profile";
 import Checkout from "./components/checkout/Checkout";
+import Signup from "./components/singup/Signup";
 
 function App() {
   // states
@@ -16,7 +17,7 @@ function App() {
   const [searchField, setSearchField] = useState("");
   const [isLogin, setLogin] = useState(false);
   const [userId,setUserId] = useState("");
-  const [cart,setCart] = useState([1,2,3]);
+  const [cart,setCart] = useState([]);
   const [actualProductId, setActualProductId] = useState("");
   const [favorites,setFavorites] = useState([]);
   const [totalValue, setTotalValue] = useState(0.0)
@@ -55,9 +56,7 @@ function App() {
       return previousFavState.filter((id)=>{return id !==itemId})
     })
   };
-  const sumValue = ()=>{
-
-  }
+  const sumValue = ()=>{}
 
 
   //catch products and fill productsstate
@@ -69,12 +68,11 @@ function App() {
 
   //
   const filteredProducts = products.filter((product) => {
-    return product.title.toLowerCase().includes(searchField.toLowerCase());
+    return product.title.toLowerCase().includes(searchField.toLowerCase()) || product.category.toLowerCase().includes(searchField.toLowerCase())
   });
   //
   return (
     <div className="App text-center">
-      <BrowserRouter>
       <NavBarP 
         onSearchChange={onSearchChange} 
         searchField={searchField} 
@@ -83,9 +81,7 @@ function App() {
         rmCartItem={onRemoveFromCart}
         totalValue={totalValue}
       />
-
       <Routes>
-
         <Route path="/" 
           element={<Body 
             products={filteredProducts} 
@@ -94,7 +90,6 @@ function App() {
             addToFav={onAddToFav} /> 
           }
         />
-
         <Route path="signin" 
           element={
             <Signin 
@@ -102,7 +97,6 @@ function App() {
             />
           } 
         />
-
         <Route path="product/:id" 
           element={
             <Product 
@@ -111,7 +105,6 @@ function App() {
             />
           } 
         />
-
         <Route path="profile" 
           element={
             <Profile 
@@ -119,7 +112,6 @@ function App() {
             />
           }
         />
-
         <Route path="checkout" 
           element={
             <Checkout 
@@ -130,11 +122,10 @@ function App() {
             />
           }
         />
-
+        <Route path="register" element={<Signup/>}/>
       </Routes>
-
       {/* <Footer /> */}
-      </BrowserRouter>
+     
     </div>
   );
 }

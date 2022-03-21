@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Button } from "react-bootstrap";
 
 const CartItem=({itemId, rmCartItem})=>{
 
@@ -21,7 +22,7 @@ const CartItem=({itemId, rmCartItem})=>{
             <img alt="item" src={product.image} width="50px"className="p-1"/>
             <div className="p-1">{product.title || "title" }</div>
             <div className="p-1">{product.price}</div>
-            <button onClick={rmItemHandler}>x</button>
+            <Button variant="dark" onClick={rmItemHandler}>x</Button>
         </div>
 
     )

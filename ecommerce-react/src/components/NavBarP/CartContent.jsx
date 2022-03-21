@@ -16,7 +16,7 @@ export const CartContent=({cart,rmCartItem})=>{
     return(
         <div>
             <ListGroup>
-                {itemcart}
+                {itemcart?itemcart:<p>you dont have ane products yet</p>}
             </ListGroup>
             <div>
                 
