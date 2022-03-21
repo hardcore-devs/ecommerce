@@ -1,7 +1,7 @@
 import ProductCard from "./ProductCard";
 import "./ProductList.css"
 
-const ProductList = ({products,onProductClick}) =>{
+const ProductList = ({products,onProductClick,addToCart,addToFav}) =>{
     const cardComponent=  products.map((user, i) => {
         return (
             
@@ -16,6 +16,8 @@ const ProductList = ({products,onProductClick}) =>{
             category={products[i].category}
             price={products[i].price}
             onProductClick={onProductClick}
+            addToCart={addToCart}
+            addToFav={addToFav}
             />
         );
     })

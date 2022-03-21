@@ -13,12 +13,12 @@ const Signin = ({onLogin}) =>{
     }
 
     const onSigninSubmit = (email,password)=>{
-        fetch("/signin",
+        fetch('https://fakestoreapi.com/auth/login',
         {
             method: "POST",
             headers: {'Content-Type':'Application/json'},
             body: JSON.stringify({
-                email: enteredEmail,
+                username: enteredEmail,
                 password: enteredPassword
             })
         })

@@ -3,6 +3,7 @@ import { ListGroup, ListGroupItem } from "react-bootstrap"
 import CartItem from "./CartItem"
 
 export const CartContent=({cart,rmCartItem})=>{
+    
 
     const itemcart = cart.map((id,index)=>{
         return(
@@ -17,6 +18,9 @@ export const CartContent=({cart,rmCartItem})=>{
             <ListGroup>
                 {itemcart}
             </ListGroup>
+            <div>
+                
+            </div>
         </div>
     )
 }

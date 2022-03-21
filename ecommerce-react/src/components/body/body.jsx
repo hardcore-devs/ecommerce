@@ -1,6 +1,6 @@
 import ProductList from "./products/ProductList";
 
-const Body = ({products, onProductClick}) => {
+const Body = ({products, onProductClick,addToCart,addToFav}) => {
 
     
     return(
@@ -17,7 +17,7 @@ const Body = ({products, onProductClick}) => {
               </div>
             </header>
             <section className="d-flex">
-                <ProductList products={products} onProductClick={onProductClick}/>
+                <ProductList products={products} onProductClick={onProductClick} addToCart={addToCart} addToFav={addToFav}/>
             </section>
         </div>
     )

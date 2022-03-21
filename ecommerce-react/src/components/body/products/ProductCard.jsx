@@ -1,8 +1,16 @@
 import "./ProductCard.css"
 import {Card,ListGroup, ListGroupItem} from "react-bootstrap"
+import { Button } from "react-bootstrap";
 
 
-const ProductCard = ({id,image,title,category,price,rate, count, onProductClick}) =>{
+const ProductCard = ({id,image,title,category,price,rate, count, onProductClick,addToCart,addToFav}) =>{
+
+    const onClickAddToCart = ()=>{
+        addToCart(id)
+    }
+    const onClickAddToFav = ()=>{
+        addToFav(id)
+    }
     
     
     return(
@@ -24,8 +32,9 @@ const ProductCard = ({id,image,title,category,price,rate, count, onProductClick}
                 <ListGroupItem>Price: ${price}</ListGroupItem>
             </ListGroup>
             <Card.Body>
-                <Card.Link href="#">Add to Cart</Card.Link>
-                <Card.Link href="#">Add to Favorites</Card.Link>
+                <Button onClick={onClickAddToCart}>Add to Cart</Button>
+                <Button onClick={onClickAddToFav}>Add to Fav</Button>
+                
             </Card.Body>
             </Card>
     )
