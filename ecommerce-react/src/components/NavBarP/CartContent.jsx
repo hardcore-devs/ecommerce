@@ -13,7 +13,6 @@ export const CartContent = ({ cart, rmCartItem }) => {
   return (
     <div className="">
       <ListGroup>{itemcart}</ListGroup>
-      <div></div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 // import "./NavBarP.css"
 import { useState, useEffect } from "react";
-import { Navbar, Container, Offcanvas, NavLink } from "react-bootstrap";
+import { Navbar, Container, Offcanvas, NavLink, Button } from "react-bootstrap";
 
 import { CartContent } from "./CartContent";
 import UserConnection from "./UserConnection";
@@ -63,10 +63,12 @@ const NavBarP = ({
           </Offcanvas.Header>
           <Offcanvas.Body>
             <CartContent cart={cart} rmCartItem={rmCartItem} userId={userId} />
+            <div className=" mt-2 ">
+              <Button variant="dark" onClick={() => onRouteChange("checkout")}>
+                Proceed to checkout
+              </Button>
+            </div>
 
-            <NavLink onClick={() => onRouteChange("checkout")}>
-              checkout
-            </NavLink>
             {/* <NavLink path="/checkout">Proceed to checkout</NavLink> */}
           </Offcanvas.Body>
         </Navbar.Offcanvas>

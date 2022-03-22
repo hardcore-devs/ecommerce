@@ -74,8 +74,9 @@ function App() {
   };
 
   const onAddToCart = (itemId) => {
+    const pObject = { productId: itemId, quantity: 1 };
     setCart((previousCartState) => {
-      return [...previousCartState, itemId];
+      return { ...previousCartState.products.push(pObject) };
     });
   };
   const onRemoveFromCart = (itemId) => {
