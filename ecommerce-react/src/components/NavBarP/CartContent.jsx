@@ -1,26 +1,19 @@
+import { ListGroup, ListGroupItem } from "react-bootstrap";
+import CartItem from "./CartItem";
 
-import { ListGroup, ListGroupItem } from "react-bootstrap"
-import CartItem from "./CartItem"
+export const CartContent = ({ cart, rmCartItem }) => {
+  const itemcart = cart.products.map((product, index) => {
+    return (
+      <ListGroupItem key={index}>
+        <CartItem cartProduct={product} index={index} rmCartItem={rmCartItem} />
+      </ListGroupItem>
+    );
+  });
 
-export const CartContent=({cart,rmCartItem})=>{
-    
-
-    const itemcart = cart.map((id,index)=>{
-        return(
-            <ListGroupItem key={index}>
-                <CartItem itemId={id} index={index} rmCartItem={rmCartItem}/>
-            </ListGroupItem>
-        )    
-    })
-
-    return(
-        <div>
-            <ListGroup>
-                {itemcart?itemcart:<p>you dont have ane products yet</p>}
-            </ListGroup>
-            <div>
-                
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="">
+      <ListGroup>{itemcart}</ListGroup>
+      <div></div>
+    </div>
+  );
+};
